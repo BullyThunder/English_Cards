@@ -14,6 +14,7 @@ COPY nest-cli.json ./
 # Устанавливаем зависимости (производственные и dev)
 RUN npm install
 
+RUN npx prisma generate
 # Копируем исходный код
 COPY . .
 
