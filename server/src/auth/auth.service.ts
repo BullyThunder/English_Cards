@@ -59,12 +59,17 @@ export class AuthService {
     if (!truePassword) {
       throw new UnauthorizedException('Incorrect password');
     }
+    const tokens = await this.issueToken(findUser.id);
+
     const finalUser = {
       id: findUser.id,
       email: findUser.email,
       name: findUser.name,
     };
-    return finalUser;
+    return {
+      user: finalUser,
+      ...tokens,
+    };
   }
   private async issueToken(userId: string) {
     const data = { id: userId };

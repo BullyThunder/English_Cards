@@ -44,6 +44,7 @@ COPY --from=build /app/prisma ./prisma
 # Устанавливаем только производственные зависимости
 RUN npm install --only=production
 
+RUN npx prisma generate
 # Открываем порт, который слушает NestJS (обычно 3000)
 EXPOSE 3000
 
