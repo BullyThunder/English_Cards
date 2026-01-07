@@ -52,4 +52,4 @@ EXPOSE 3000
 
 # Команда, которая запускается при старте контейнера
 # Сначала выполняем миграцию, затем запускаем сервер
-CMD ["sh", "-c", "npx prisma migrate deploy && node dist/main"]
+CMD ["sh", "-c", "npx prisma migrate deploy && node dist/src/main"]
